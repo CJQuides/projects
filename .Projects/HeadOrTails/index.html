@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heads Or Tails</title>
+    <link rel="stylesheet" href="style/style.css">
+</head>
+<body id="body">
+    <div class="bodyGame">
+        <div class="btns">
+            <button onclick="save(1)" class="headBtn">Head</button>
+            <button onclick="save(0)" class="tailBtn">Tail</button>
+            <button onclick="reset()" class="resetBtn">Reset Score</button>
+            <a href="../../index.html" class="nextBtn">Home</a>
+        </div>
+        <br><br>
+        <div class="results" id="results">
+            <h2 id="result">You are: </h2>
+            <p id="corrects">&nbsp</p>
+            <p id="wrongs">&nbsp</p>
+        </div>
+        <p id="value" style="visibility: hidden;">0</p>
+    </div>
+    
+    <script>
+        console.log('08.23.23');
+        console.log('08.24.23 - Saving');
+
+        console.log(JSON.parse(localStorage.getItem('overalls')));
+
+        let overall = JSON.parse(localStorage.getItem('overalls')) || {
+            correct : 0,
+            wrong : 0
+        };
+
+        document.getElementById('corrects').innerHTML = "Correct: "+overall.correct;
+        document.getElementById('wrongs').innerHTML = "Wrong: "+overall.wrong;
+
+        function maker(){
+            let answer = Math.floor(Math.random()*2)
+            let x = answer;
+
+            document.getElementById('result').innerHTML = "You are: ";
+            return x;
+        }
+
+        function checker(guess){
+            if(guess === maker()){
+                overall.correct += 1;
+                document.getElementById('result').innerHTML += "CORRECT!";
+                document.getElementById('results').style.backgroundColor = "#98fb98";
+            } else {
+                overall.wrong += 1;
+                document.getElementById('result').innerHTML += "WRONG!";
+                document.getElementById('results').style.backgroundColor = "#E34234";
+            }
+            document.getElementById('corrects').innerHTML = "Correct: "+overall.correct;
+            document.getElementById('wrongs').innerHTML = "Wrong: "+overall.wrong;
+
+            let conclusion = overall.correct === 10 ? 'won' : (overall.wrong === 10 ? 'lost' : '-');
+
+            if(conclusion !== '-'){
+                alert("You "+ conclusion+ "!");
+                overall.correct = 0;
+                overall.wrong = 0;
+            }
+        }
+
+        function save(guess){
+            checker(guess);
+            localStorage.setItem("overalls", JSON.stringify(overall));
+        }
+
+        function reset(){
+            overall.correct = 0;
+            overall.wrong = 0;
+            console.log(overall);
+            localStorage.setItem("overalls", JSON.stringify(overall));
+
+            document.getElementById('corrects').innerHTML = "Correct: " + overall.correct;
+            document.getElementById('wrongs').innerHTML = "Wrong: " + overall.wrong;
+
+            document.getElementById('result').innerHTML = "You are:";
+            document.getElementById('results').style.backgroundColor = "#b37fd8";
+        }
+    </script>
+</body>
+</html>

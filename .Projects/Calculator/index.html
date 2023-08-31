@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Addition Calculator</title>
+
+  <link rel="stylesheet" href="style/style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+</head>
+<body id="body">
+  <h2 class="title">CALCULATOR</h2>
+  <div id="calcuBorder" class="calcuBorder">            
+    <div id="calcuBody" class="container text-center mt-5">
+      <div class="row">
+        <p id="answer">&nbsp;</p>
+      </div>
+      <div class="row row-cols-4">
+        <div class="col">
+            <button onclick="nums(7)" id="btn" class="btn">7</button>
+        </div>
+        <div class="col">
+            <button onclick="nums(8)" id="btn" class="btn">8</button>
+        </div>
+        <div class="col">
+            <button onclick="nums(9)" id="btn" class="btn">9</button>
+        </div>
+        <div class="col">
+            <button onclick="sign('/')" id="btn" class="btn">/</button>
+        </div>
+      </div>
+      <div class="row row-cols-4">
+        <div class="col">
+            <button onclick="nums(4)" id="btn" class="btn">4</button>
+        </div>
+        <div class="col">
+            <button onclick="nums(5)" id="btn" class="btn">5</button>
+        </div>
+        <div class="col">
+            <button onclick="nums(6)" id="btn" class="btn">6</button>
+        </div>
+        <div class="col">
+            <button onclick="sign('*')" id="btn" class="btn">*</button>
+        </div>
+      </div>
+      <div class="row row-cols-4">
+        <div class="col">
+            <button onclick="nums(1)" id="btn" class="btn">1</button>
+        </div>
+        <div class="col">
+            <button onclick="nums(2)" id="btn" class="btn">2</button>
+        </div>
+        <div class="col">
+            <button onclick="nums(3)" id="btn" class="btn">3</button>
+        </div>
+        <div class="col">
+          <button onclick="sign('-')" id="btn" class="btn">-</button>
+        </div>
+      </div>
+      <div class="row row-cols-4">
+        <div class="col">
+          <button onclick="nums(0)" id="btn" class="btn">0</button>
+        </div>
+        <div class="col">
+          <button onclick="nums('.')" id="btn" class="btn px-3">.</button>
+        </div>
+        <div class="col">
+          <button onclick="calculate()" id="btn" class="btn">=</button>
+        </div>
+        <div class="col">
+          <button onclick="sign('+')" id="btn" class="btn">+</button>
+        </div>
+      </div>
+      
+      <button onclick="clearBtn()" id="btnClear" class="btn mt-1">Clear</button>
+      <button onclick="backSpace()" id="btnBackSpace" class="btn mt-1"><!-- ← -->⌫</button>
+    </div>
+  </div>
+  <script>
+    console.log('08.25.23')
+    
+    let pampers = [];
+    let x = 0;
+
+    function nums(num){
+      if(true){
+        if(pampers.length > 11){
+          alert("You have reached the limit");
+        } else {
+          if(pampers[0] === '0'){
+            document.querySelector('#answer').innerHTML = num;
+            pampers = document.querySelector('#answer').innerHTML.split('');
+          } else {
+            if(x === 0){          
+              document.querySelector('#answer').innerHTML = num;
+              x++;
+              pampers = document.querySelector('#answer').innerHTML.split('');
+            } else {
+              document.querySelector('#answer').innerHTML += num;
+              pampers = document.querySelector('#answer').innerHTML.split('');
+            }
+          }
+        }
+      } else {
+          alert("Choose an operator symbol first!");
+      }
+    }
+
+    function sign(symbol){
+      if(pampers.length  > 11){
+        alert("You have reached the limit");
+      } else {
+        if(pampers[pampers.length-1] === '+' || pampers[pampers.length-1] === '-' || pampers[pampers.length-1] === '*' || pampers[pampers.length-1] === '/'){
+          alert("Choose a number first");
+        } else{
+          document.querySelector('#answer').innerHTML += symbol;
+          pampers = document.querySelector('#answer').innerHTML.split('');
+        }
+      }
+    }
+    
+    function calculate() {
+      let expression = document.getElementById("answer").innerHTML;
+      let result = eval(expression);
+      let resChecker = result.toString().split('')
+      
+      if(resChecker.length > 12){
+        console.log(resChecker.length);
+        resChecker.splice(12, 9);
+        console.log(resChecker.length);
+        document.getElementById("answer").innerHTML = resChecker.join('');      
+        pampers = document.querySelector('#answer').innerHTML.split('');
+      } else {
+        console.log(resChecker.length);
+        document.getElementById("answer").innerHTML = result;      
+        pampers = document.querySelector('#answer').innerHTML.split('');
+      }
+    }
+
+    function clearBtn() {   
+      x = 0;
+      pampers = [];
+      document.querySelector('#answer').innerHTML = '&nbsp;';
+    }
+
+    function backSpace() {
+      pampers.splice(pampers.length-1, 1);  
+
+      if(pampers.length === 0){
+        document.querySelector('#answer').innerHTML = '&nbsp;';
+        pampers=[];
+      } else {   
+        document.querySelector('#answer').innerHTML = pampers.join('');
+      }
+    }
+  </script>
+</body>
+</html>
+
+<!-- negative
+      parenthesis
+    
+    -->

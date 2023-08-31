@@ -1,0 +1,47 @@
+.calculator {
+    background-color: gray;
+}
+
+.btn1 {
+    background-color: red;
+}
+
+.headBtn, .tailBtn, .resetBtn, .nextBtn {
+    background-color: #FE7F9C;
+    border-radius: 30px;
+    border: #FE7F9C 5px solid;
+    font-family: 'Times New Roman', Times, serif;
+    padding-inline: 10px;
+    font-size: clamp(20px, 4vw, 50px);
+}
+
+.headBtn:hover, .tailBtn:hover, .resetBtn:hover, .nextBtn:hover {
+    background-color: #73C2FB;
+    border: #73C2FB 5px solid;
+    transition-duration: .7s;
+}
+
+.nextBtn {
+    text-decoration:none;
+    color: black;
+}
+
+body {
+    background-image: url("media/fallingSakura-Bg.gif"), url("media/sakura-Bg.jpg");
+    background-size: auto, cover;
+    background-attachment: fixed;
+}
+
+.results {
+    background-color: #b37fd8;
+    border-radius: 30px;
+    padding-block: 1px;
+    padding-inline: 15px;
+    width: 50%;
+    font-size: clamp(14px, 3vw, 20px);
+}
+
+.results:hover {    
+    background-color: #c88df1;
+    transition-duration: .7s;
+}
