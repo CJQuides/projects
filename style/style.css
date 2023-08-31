@@ -1,0 +1,14 @@
+.btn {
+  text-decoration: none;
+  color: black;
+  background-color: pink;
+  border-radius: 50px;
+  font-size: 30px;
+  padding: 10px;
+  margin: 5px;
+}
+
+.btn:hover {
+  background-color: lightblue;
+  transition: .9s;
+}
