@@ -1,4 +1,10 @@
-.body {
+body {
+  background-image: url("https://mcdn.wallpapersafari.com/medium/8/1/FqEYG7.jpg");
+  background-repeat: no-repeat;
+  background-size: auto;
+}
+
+.buttons {
   padding-top: 1%;
 }
 
@@ -9,7 +15,6 @@
   border-radius: 50px;
   font-size: 30px;
   padding: 10px;
-  margin: 5px;
 }
 
 .btn:hover {
