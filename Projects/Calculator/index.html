@@ -14,7 +14,7 @@
   <div id="calcuBorder" class="calcuBorder">            
     <div id="calcuBody" class="container text-center mt-5">
       <div class="row">
-        <p id="answer">&nbsp;</p>
+        <p id="answer">&nbsp</p>
       </div>
       <div class="row row-cols-4">
         <div class="col">
@@ -55,7 +55,7 @@
             <button onclick="nums(3)" id="btn" class="btn">3</button>
         </div>
         <div class="col">
-          <button onclick="sign('-')" id="btn" class="btn">-</button>
+          <button onclick="sign('-')" id="btn" class="btn" style="font-weight: bold; font-size: 35px;">-</button>
         </div>
       </div>
       <div class="row row-cols-4">
@@ -66,10 +66,24 @@
           <button onclick="nums('.')" id="btn" class="btn px-3">.</button>
         </div>
         <div class="col">
-          <button onclick="calculate()" id="btn" class="btn">=</button>
+          <button onclick="calculate()" id="btn" class="btn" style="padding-inline: 10px;">=</button>
         </div>
         <div class="col">
           <button onclick="sign('+')" id="btn" class="btn">+</button>
+        </div>
+      </div>
+      <div class="row row-cols-4">
+        <div class="col">
+          <button onclick="sign('o')" id="btn" class="btn px-3">(</button>
+        </div>
+        <div class="col">
+          <button onclick="sign('c')" id="btn" class="btn px-3">)</button>
+        </div>
+        <div class="col">
+          <button onclick="sign('^')" id="btn" class="btn">^</button>
+        </div>
+        <div class="col">
+          <button onclick="sign('√')" id="btn" class="btn"><img src="https://cdn-icons-png.flaticon.com/512/43/43743.png" alt="" style="height: 30px; width: 25px;"></button>
         </div>
       </div>
       
@@ -77,11 +91,9 @@
       <button onclick="backSpace()" id="btnBackSpace" class="btn mt-1"><!-- ← -->⌫</button>
     </div>
   </div>
+  
+  <p id="value" style="display: none;"></p>
+  
   <script src="scripts/script.js"></script>
 </body>
 </html>
-
-<!-- negative
-      parenthesis
-    
-    -->
