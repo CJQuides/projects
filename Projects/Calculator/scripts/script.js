@@ -71,9 +71,9 @@ function sign(symbol){
 
 function calculate() {
   if(sym === '√'){
+    num2 = document.querySelector('#value').innerHTML;
     result = Math.sqrt(parseFloat(num2));
-      
-    console.log(resChecker.length);
+
     document.getElementById("answer").innerHTML = result;      
     pampers = document.querySelector('#answer').innerHTML.split('');
     num1 = result;
