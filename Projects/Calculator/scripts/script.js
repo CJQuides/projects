@@ -59,12 +59,13 @@ function sign(symbol){
       if(symbol === 'c') {symbol = ')'}
 
       if(!num1) {num1 = document.querySelector('#value').innerHTML;}
+
       document.querySelector('#answer').innerHTML += symbol;
       pampers = document.querySelector('#answer').innerHTML.split('');
       document.querySelector('#value').innerHTML = '';
       dotCounter = 0;
-      if(symbol === '-' || symbol === '√')
-      x++;
+
+      if(symbol === '-' || symbol === '√'){ x++; }
     }
   }
 }
