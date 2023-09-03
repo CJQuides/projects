@@ -1,5 +1,5 @@
 .js-delete{
-  background-image: url('/style/media/del-btn.png');
+  background-image: url('media/del-btn.png');
   background-size: cover;
   height: 30px;
   width: 30px;
@@ -12,9 +12,21 @@
 .center-cell {
   text-align: center;
   border-bottom: black solid 2px;
+  padding-top: 30px;
 }
 
 .item-cell{
   width: 200px;
   border-bottom: black solid 2px;
+}
+
+.homeBtn{  
+  background-color: #FE7F9C;
+  border-radius: 30px;
+  border: #FE7F9C 5px solid;
+  font-family: 'Times New Roman', Times, serif;
+  padding-inline: 10px;
+  font-size: clamp(20px, 4vw, 50px);
+  text-decoration:none;
+  color: black;
 }
