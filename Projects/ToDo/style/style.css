@@ -1,0 +1,20 @@
+.js-delete{
+  background-image: url('/style/media/del-btn.png');
+  background-size: cover;
+  height: 30px;
+  width: 30px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  align-items: center;
+}
+
+.center-cell {
+  text-align: center;
+  border-bottom: black solid 2px;
+}
+
+.item-cell{
+  width: 200px;
+  border-bottom: black solid 2px;
+}
