@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> Power </title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <link href="style/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+  <div class="container mb-sm-4 mb-lg-5 mt-3 mt-md-5">
+    <h1> You chose Power! </h1>
+  </div>
+
+  <center>
+    <label id="a"> What are we looking for? </label> <br>
+    <select name="missing" id="missing">
+      <option value="power">Power</option>
+      <option value="force">Force</option>
+      <option value="distance">Distance</option>
+      <option value="time">Time</option>
+    </select>
+
+    <br><br>
+
+    <label id="a"> What do we have? </label><br>
+  </center>
+
+  <div class="container">    
+    <div id="given" class="container">
+      <div class="container ms-5 py-2">
+        <label for="gPower">Power</label>
+        <input type="number" step="0.0001" name="givenPower" id="givenPower"/> J<br><br>
+
+        <label for="gForce">Force</label>
+        <input type="number" step="0.0001" name="givenForce" id="givenForce"/> N<br><br>
+
+        <label for="gDistance">Distance</label>
+        <input type="number" step="0.0001" name="givenDistance" id="givenDistance" required/> m<br><br>
+
+        <label for="gTime">Time</label>
+        <input type="number" step="0.0001" name="givenTime" id="givenTime"/> s<br>
+      </div>
+    </div><br>
+  </div>
+
+  <center>
+    <div>
+      <button onclick="solve()" id="solve" style="font-size: 25px;">Solve</button>
+      <button onclick="reset()" id="reset" style="font-size: 25px;">Reset</button><br><br>
+      <button onclick="location.href='/'" style="font-size: 25px;">Back</button>
+    </div>
+  </center><br>
+
+  <script>
+    const dropdown = document.getElementById("missing");
+    const givenPowerTb = document.getElementById("givenPower");
+    const givenForceTb = document.getElementById("givenForce");
+    const givenDistanceTb = document.getElementById("givenDistance");
+    const givenTimeTb = document.getElementById("givenTime");
+
+    function disableBox(){
+      if(dropdown.value === "power"){
+        givenPowerTb.disabled = true;
+        givenForceTb.disabled = false;
+        givenDistanceTb.disabled = false;
+        givenTimeTb.disabled = false;
+      } else if(dropdown.value === "force"){
+        givenPowerTb.disabled = false;
+        givenForceTb.disabled = true;
+        givenDistanceTb.disabled = false;
+        givenTimeTb.disabled = false;
+      } else if(dropdown.value === "distance"){
+        givenPowerTb.disabled = false;
+        givenForceTb.disabled = false;
+        givenDistanceTb.disabled = true;
+        givenTimeTb.disabled = false;
+      } else if(dropdown.value === "time"){
+        givenPowerTb.disabled = false;
+        givenForceTb.disabled = false;
+        givenDistanceTb.disabled = false;
+        givenTimeTb.disabled = true;
+      }
+    } disableBox();
+
+    dropdown.addEventListener("change", function() {
+      disableBox();
+      reset();
+      
+      let givenPower = parseFloat(givenPowerTb.value);
+      let givenForce = parseFloat(givenForceTb.value);
+      let givenDistance = parseFloat(givenDistanceTb.value);
+      let givenTime = parseFloat(givenTimeTb.value);
+      let missingValue = dropdown.value;
+    });
+
+    function solve(){
+      givenPower = parseFloat(givenPowerTb.value);
+      givenForce = parseFloat(givenForceTb.value);
+      givenDistance = parseFloat(givenDistanceTb.value);
+      givenTime = parseFloat(givenTimeTb.value);
+      missingValue = dropdown.value;
+
+      if(missingValue === 'power'){
+        if(givenForce && givenDistance){
+          alert("The Power is "+solution(givenForce, givenDistance, givenTime, missingValue)+" J");
+        } else {
+          alert("Enter given values");
+        }
+      } else if(missingValue === 'force'){
+        if(givenPower && givenDistance){
+          alert("The force applied is "+solution(givenPower, givenDistance, givenTime, missingValue)+" N");
+        } else {
+          alert("Enter given values");
+        }
+      } else if(missingValue === 'distance'){
+        if(givenForce && givenPower){
+          alert("The distance travelled is "+solution(givenPower, givenForce, givenTime, missingValue)+" m");
+        } else {
+          alert("Enter given values");
+        }
+      } else if(missingValue === 'time'){
+        if(givenForce && givenDistance){
+          alert("The time is "+solution(givenForce, givenDistance, givenPower, missingValue)+" J");
+        } else {
+          alert("Enter given values");
+        }
+      }
+    }
+
+    function reset(){
+      givenPowerTb.value = null;
+      givenForceTb.value = null;
+      givenDistanceTb.value = null;
+      givenTimeTb.value = null;
+    }
+
+    function solution(given1, given2, given3, missing){
+      let answer = 0;
+      if(missing === 'power' || missing === 'time'){
+        if(given3){
+          answer = given1 * given2 / given3;
+        }
+      } else {
+        if(given3){
+          answer = given1 / given2 / given3;
+        }
+      }
+      return answer;
+    }
+  </script>
+</body>
+</html>

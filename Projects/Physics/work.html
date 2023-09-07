@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> Work </title>  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <link href="style/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+  <div class="container mb-sm-4 mb-lg-4 mt-3 mt-md-5">
+    <h1> You chose Work! </h1>
+  </div>
+
+  <center>
+    <label id="a"> What are we looking for? </label> <br>
+    <select name="missing" id="missing">
+      <option value="work">Work</option>
+      <option value="force">Force</option>
+      <option value="distance">Distance</option>
+    </select>
+
+    <br><br>
+
+    <label id="a"> What do we have? </label><br>
+  </center>
+
+  <div class="container">    
+    <div id="given" class="container">
+      <div class="container ms-5 py-2">
+        <label for="gWork">Work</label>
+        <input type="number" step="0.0001" name="givenWork" id="givenWork"/> J<br><br>
+
+        <label for="gForce">Force</label>
+        <input type="number" step="0.0001" name="givenForce" id="givenForce"/> N<br><br>
+
+        <label for="gDistance">Distance</label>
+        <input type="number" step="0.0001" name="givenDistance" id="givenDistance" required/> m<br><br>
+
+        <label for="gAngle">Angle</label>
+        <input type="number" step="0.0001" name="givenAngle" id="givenAngle"/> °<br>
+      </div>
+    </div><br>
+  </div>
+
+  <center>
+    <div>
+      <button onclick="solve()" id="solve" style="font-size: 25px;">Solve</button>
+      <button onclick="reset()" id="reset" style="font-size: 25px;">Reset</button><br><br>
+      <button onclick="location.href='/'" style="font-size: 25px;">Back</button>
+    </div>
+  </center><br>
+
+  <script>
+    const dropdown = document.getElementById("missing");
+    const givenWorkTb = document.getElementById("givenWork");
+    const givenForceTb = document.getElementById("givenForce");
+    const givenDistanceTb = document.getElementById("givenDistance");
+    const givenAngleTb = document.getElementById("givenAngle");
+
+    function disableBox(){
+      if(dropdown.value === "work"){
+        givenWorkTb.disabled = true;
+        givenForceTb.disabled = false;
+        givenDistanceTb.disabled = false;
+      } else if(dropdown.value === "force"){
+        givenWorkTb.disabled = false;
+        givenForceTb.disabled = true;
+        givenDistanceTb.disabled = false;
+      } else if(dropdown.value === "distance"){
+        givenWorkTb.disabled = false;
+        givenForceTb.disabled = false;
+        givenDistanceTb.disabled = true;
+      }
+    } disableBox();
+
+    dropdown.addEventListener("change", function() {
+      disableBox();
+      reset();
+      
+      let givenWork = parseFloat(givenWorkTb.value);
+      let givenForce = parseFloat(givenForceTb.value);
+      let givenDistance = parseFloat(givenDistanceTb.value);
+      let givenAngle = parseFloat(givenAngleTb.value);
+      let missingValue = dropdown.value;
+    });
+
+    function solve(){
+      givenWork = parseFloat(givenWorkTb.value);
+      givenForce = parseFloat(givenForceTb.value);
+      givenDistance = parseFloat(givenDistanceTb.value);
+      givenAngle = parseFloat(givenAngleTb.value);
+      missingValue = dropdown.value;
+
+      if(missingValue === 'work'){
+        if(givenForce && givenDistance){
+          alert("The work done is "+solution(givenForce, givenDistance, givenAngle, missingValue)+" J");
+        } else {
+          alert("Enter given values");
+        }
+      } else if(missingValue === 'force'){
+        if(givenWork && givenDistance){
+          alert("The force applied is "+solution(givenWork, givenDistance, givenAngle, missingValue)+" N");
+        } else {
+          alert("Enter given values");
+        }
+      } else if(missingValue === 'distance'){
+        if(givenForce && givenWork){
+          alert("The distance travelled is "+solution(givenWork, givenForce, givenAngle, missingValue)+" m");
+        } else {
+          alert("Enter given values");
+        }
+      } 
+    }
+
+    function reset(){
+      givenWorkTb.value = null;
+      givenForceTb.value = null;
+      givenDistanceTb.value = null;
+      givenAngleTb.value = null;
+    }
+
+    function solution(given1, given2, givenAngle, missing){
+      let answer = 0;
+      if(missing === 'work'){
+        if(givenAngle){
+          answer = given1 * given2 * Math.cos(givenAngle);
+        } else {
+          answer = given1 * given2;
+        }
+      } else {
+        if(givenAngle){
+          answer = given1 / given2 * Math.cos(givenAngle);
+        } else {
+          answer = given1 / given2;
+        }
+      }
+      return answer;
+    }
+  </script>
+</body>
+</html>

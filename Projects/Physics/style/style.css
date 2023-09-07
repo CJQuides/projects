@@ -1,0 +1,75 @@
+body {
+  background-image: url("media/bgMain.jpg");
+  background-size: cover;
+}
+
+h1 {
+  background-color: white;
+  font-size: 50px;
+  border: black solid 3px;
+  border-radius: 10px;
+  color: black;
+  text-align: center;
+}
+
+.missing {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+#missing {
+  font-size: 20px;
+  text-align: center;
+  font-family: serif;
+}
+
+#a {
+  font-size: 25px;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+  text-shadow: 3px 3px #000000;
+}
+
+#given {
+  font-size: 20px;
+  border: black 3px solid;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: lightgray;
+  font-weight: 400;
+  max-width: 500px;
+}
+
+button {
+  border: black 3px solid;
+  border-radius: 10px;
+}
+
+button:hover {
+  border: white 3px solid;
+  color: white;
+  background-color: black;
+  transition: 1s;
+}
+
+#reset:hover {
+  border: black 3px solid;
+  color: black;
+  background-color: red;
+}
+
+#solve:hover {
+  border: white 3px solid;
+  color: white;
+  background-color: green;
+}
+
+#givenAOC {
+  width: 150px;
+}
+
+#btn {
+  border: black 3px solid;
+  border-radius: 10px;
+}

@@ -8,7 +8,6 @@ let x = 0;
 todoArray.forEach((item, index) => {
   const newRow = table.tBodies[0].insertRow();
 
-  // Insert cells with data from the array item
   const cell1 = newRow.insertCell(0);
   cell1.textContent = item;
   cell1.classList.add('center-cell');
@@ -43,8 +42,5 @@ function saveToDo(){
 
   localStorage.setItem("myArray", JSON.stringify(todoArray));
 
-  location.reload();
-}
-
-function itemDelete(index){      
+  location.reload(); // or icall yung pang display
 }

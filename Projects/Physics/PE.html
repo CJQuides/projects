@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> Potential Energy </title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <link href="style/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+  <div class="container mb-sm-4 mb-lg-5 mt-3 mt-md-5">
+    <h1 class="pb-2"> You chose Potential Energy! </h1>
+  </div>
+
+  <center>  
+    <label id="a"> What are we looking for? </label> <br>
+    <select name="missing" id="missing">
+      <option value="PE">Potential Energy</option>
+      <option value="mass">Mass</option>
+      <option value="height">Height</option>
+    </select>
+    <br><br>
+
+    <label id="a"> What do we have? </label><br><br>
+  </center>
+
+  <div class="container">    
+    <div id="given" class="container">
+      <div class="container ms-sm-4 ms-2 py-2">
+        <label for="gPotentialEnergy">Potential Energy</label>
+        <input type="number" step="0.0001" id="givenPE"/> J<br><br>
+
+        <label for="gMass">Mass</label>
+        <input type="number" step="0.0001" id="givenMass"/> kg<br><br>
+
+        <label for="gHeight">Height</label>
+        <input type="number" step="0.0001" id="givenHeight"/> m<br>
+      </div>
+    </div><br>
+  </div>
+
+  <center>
+    <div>
+      <button onclick="solve()" id="solve" style="font-size: 25px;">Solve</button>
+      <button onclick="reset()" id="reset" style="font-size: 25px;">Reset</button><br><br>
+      <button onclick="location.href='/'" style="font-size: 25px;">Back</button>
+    </div>
+  </center><br>
+
+  <script>
+    const dropdown = document.getElementById("missing");
+    const givenPETb = document.getElementById("givenPE");
+    const givenMassTb = document.getElementById("givenMass");
+    const givenHeightTb = document.getElementById("givenHeight");
+
+    function disableBox(){
+      if(dropdown.value === "PE"){
+        givenPETb.disabled = true;
+        givenMassTb.disabled = false;
+        givenHeightTb.disabled = false;
+      } else if(dropdown.value === "mass"){
+        givenPETb.disabled = false;
+        givenMassTb.disabled = true;
+        givenHeightTb.disabled = false;
+      } else if(dropdown.value === "height"){
+        givenPETb.disabled = false;
+        givenMassTb.disabled = false;
+        givenHeightTb.disabled = true;
+      }
+    } disableBox();
+
+    dropdown.addEventListener("change", function() {
+      disableBox();
+      reset();
+      
+      let givenPE = parseFloat(givenPETb.value);
+      let givenMass = parseFloat(givenMassTb.value);
+      let givenHeight = parseFloat(givenHeightTb.value);
+      let missingValue = dropdown.value;
+    });
+
+    function solve(){
+      givenPE = parseFloat(givenPETb.value);
+      givenMass = parseFloat(givenMassTb.value);
+      givenHeight = parseFloat(givenHeightTb.value);
+      missingValue = dropdown.value;
+
+      if(missingValue === 'PE'){
+        if(givenMass && givenHeight){
+          alert("The Potential Energy is "+solution(givenMass, givenHeight, missingValue)+" J");
+        } else {
+          alert("Enter given values");
+        }
+      } else if(missingValue === 'mass'){
+        if(givenPE && givenHeight){
+          alert("The mass is "+solution(givenPE, givenHeight, missingValue)+" kg");
+        } else {
+          alert("Enter given values");
+        }
+      } else if(missingValue === 'height'){
+        if(givenMass && givenPE){
+          alert("The height is "+solution(givenPE, givenMass, missingValue)+" m");
+        } else {
+          alert("Enter given values");
+        }
+      } 
+    }
+
+    function reset(){
+      givenPETb.value = null;
+      givenMassTb.value = null;
+      givenHeightTb.value = null;
+    }
+
+    function solution(given1, given2, missing){
+      let answer = 0;
+      if(missing === 'PE'){
+        answer = given1 * 9.81 * given2;
+      } else {
+        answer = given1 / (9.81 * given2);
+      }
+      return answer;
+    }
+  </script>
+</body>
+</html>
