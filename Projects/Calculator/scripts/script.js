@@ -10,6 +10,7 @@ let num2 = '';
 let expression;
 let result;
 let resChecker;
+let lastAns;
 
 function nums(num){
   if(true){
@@ -52,10 +53,17 @@ function sign(symbol){
   if(pampers.length  > 11){
     alert("You have reached the limit");
   } else {
-    if(pampers[pampers.length-1] === '+' || pampers[pampers.length-1] === '-' || pampers[pampers.length-1] === '*' || pampers[pampers.length-1] === '/' || pampers[pampers.length-1] === '^' || pampers[pampers.length-1] === '√' || pampers[pampers.length-1] === 'o' || pampers[pampers.length-1] === 'c'){
+    if(pampers[pampers.length-1] === '+' || pampers[pampers.length-1] === '-' || pampers[pampers.length-1] === '*' || pampers[pampers.length-1] === '/' || pampers[pampers.length-1] === '^' || pampers[pampers.length-1] === 'o' || pampers[pampers.length-1] === 'c'){
       alert("Choose a number first");
     } else {
-      if(symbol === 'o') {symbol = '('}
+      if(symbol === 'o') {
+        symbol = '(';
+        console.log("ds",pampers);
+        x++;
+        if(document.querySelector('#answer').innerHTML === '&nbsp;'){
+          document.querySelector('#answer').innerHTML = '';
+        }
+      }
       if(symbol === 'c') {symbol = ')'}
 
       if(!num1) {num1 = document.querySelector('#value').innerHTML;}
@@ -66,11 +74,13 @@ function sign(symbol){
       dotCounter = 0;
 
       if(symbol === '-' || symbol === '√'){ x++; }
+      console.log("ds",pampers)
     }
   }
 }
 
 function calculate() {
+  console.log("X",pampers.join(''),"X")
   if(sym === '√'){
     num2 = document.querySelector('#value').innerHTML;
     result = Math.sqrt(parseFloat(num2));
@@ -81,7 +91,13 @@ function calculate() {
   } else {
     console.log(sym);
     expression = document.getElementById("answer").innerHTML;
-    result = eval(expression);
+    //result = eval(expression);
+    /* 
+    expression = expression.replace(/sin\(/g, 'sin(' + Math.PI / 180 + '*');
+    expression = expression.replace(/cos\(/g, 'cos(' + Math.PI / 180 + '*');
+    expression = expression.replace(/tan\(/g, 'tan(' + Math.PI / 180 + '*');
+    */
+    result = math.evaluate(expression);
     resChecker = result.toString().split('');
     
     num2 = document.querySelector('#value').innerHTML;
@@ -101,6 +117,7 @@ function calculate() {
       document.getElementById("answer").innerHTML = result;      
       pampers = document.querySelector('#answer').innerHTML.split('');
       num1 = result;
+      lastAns = result
     }
   }
 }
@@ -122,3 +139,5 @@ function backSpace() {
     document.querySelector('#answer').innerHTML = pampers.join('');
   }
 }
+
+/* sqrt */

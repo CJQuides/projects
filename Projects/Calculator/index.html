@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Calculator</title>
+  <title>Calculator Complete</title>
 
   <link rel="stylesheet" href="style/style.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
@@ -80,7 +80,7 @@
           <button onclick="sign('c')" id="btn" class="btn px-3">)</button>
         </div>
         <div class="col">
-          <button onclick="sign('^')" id="btn" class="btn">^</button>
+          <button onclick="sign('^(')" id="btn" class="btn">^</button>
         </div>
         <div class="col">
           <button onclick="sign('√')" id="btn" class="btn"><img src="style/media/squareRoot.png" alt="" style="height: 30px; width: 25px;"></button>
@@ -93,7 +93,8 @@
   </div>
   
   <p id="value" style="display: none;"></p>
-  
+
   <script src="scripts/script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/10.6.4/math.js" integrity="sha512-BbVEDjbqdN3Eow8+empLMrJlxXRj5nEitiCAK5A1pUr66+jLVejo3PmjIaucRnjlB0P9R3rBUs3g5jXc8ti+fQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>
 </html>
