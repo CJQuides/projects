@@ -17,7 +17,7 @@
       <option value="SC">Spring Constant</option>
       <option value="AOC">Amount of Compression</option>
     </select>
-
+    <label id="answer" class="px-4"></label>
     <br><br>
 
     <label id="a"> What do we have? </label><br><br>
@@ -51,6 +51,7 @@
     const givenPETb = document.getElementById("givenPE");
     const givenSCTb = document.getElementById("givenSC");
     const givenAOCTb = document.getElementById("givenAOC");
+    let answer = document.getElementById("answer");
 
     function disableBox(){
       if(dropdown.value === "PE"){
@@ -86,19 +87,22 @@
 
       if(missingValue === 'PE'){
         if(givenSC && givenAOC){
-          alert("The Kinetic Energy is "+solution(givenSC, givenAOC, missingValue)+" J");
+          answer.innerHTML = solution(givenSC, givenAOC, missingValue)+" J";
+          answer.style.backgroundColor = 'rgb(195, 151, 231)';
         } else {
           alert("Enter given values");
         }
       } else if(missingValue === 'SC'){
         if(givenPE && givenAOC){
-          alert("The SC is "+solution(givenPE, givenAOC, missingValue)+" kg");
+          answer.innerHTML = solution(givenPE, givenAOC, missingValue)+" kg";
+          answer.style.backgroundColor = 'rgb(195, 151, 231)';
         } else {
           alert("Enter given values");
         }
       } else if(missingValue === 'AOC'){
         if(givenSC && givenPE){
-          alert("The AOC is "+solution(givenPE, givenSC, missingValue)+" m");
+          answer.innerHTML = solution(givenPE, givenSC, missingValue)+" m";
+          answer.style.backgroundColor = 'rgb(195, 151, 231)';
         } else {
           alert("Enter given values");
         }
@@ -109,6 +113,9 @@
       givenPETb.value = null;
       givenSCTb.value = null;
       givenAOCTb.value = null;
+      
+      answer.style.backgroundColor = 'transparent';
+      answer.innerHTML = '';
     }
 
     function solution(given1, given2, missing){

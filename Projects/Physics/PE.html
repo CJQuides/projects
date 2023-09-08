@@ -17,6 +17,7 @@
       <option value="mass">Mass</option>
       <option value="height">Height</option>
     </select>
+    <label id="answer" class="px-4"></label>
     <br><br>
 
     <label id="a"> What do we have? </label><br><br>
@@ -50,6 +51,7 @@
     const givenPETb = document.getElementById("givenPE");
     const givenMassTb = document.getElementById("givenMass");
     const givenHeightTb = document.getElementById("givenHeight");
+    let answer = document.getElementById("answer");
 
     function disableBox(){
       if(dropdown.value === "PE"){
@@ -85,19 +87,22 @@
 
       if(missingValue === 'PE'){
         if(givenMass && givenHeight){
-          alert("The Potential Energy is "+solution(givenMass, givenHeight, missingValue)+" J");
+          answer.innerHTML = solution(givenMass, givenHeight, missingValue)+" J";
+          answer.style.backgroundColor = 'rgb(195, 151, 231)';
         } else {
           alert("Enter given values");
         }
       } else if(missingValue === 'mass'){
         if(givenPE && givenHeight){
-          alert("The mass is "+solution(givenPE, givenHeight, missingValue)+" kg");
+          answer.innerHTML = solution(givenPE, givenHeight, missingValue)+" kg";
+          answer.style.backgroundColor = 'rgb(195, 151, 231)';
         } else {
           alert("Enter given values");
         }
       } else if(missingValue === 'height'){
         if(givenMass && givenPE){
-          alert("The height is "+solution(givenPE, givenMass, missingValue)+" m");
+          answer.innerHTML = solution(givenPE, givenMass, missingValue)+" m";
+          answer.style.backgroundColor = 'rgb(195, 151, 231)';
         } else {
           alert("Enter given values");
         }
@@ -108,6 +113,9 @@
       givenPETb.value = null;
       givenMassTb.value = null;
       givenHeightTb.value = null;
+      
+      answer.style.backgroundColor = 'transparent';
+      answer.innerHTML = '';
     }
 
     function solution(given1, given2, missing){

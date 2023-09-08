@@ -18,7 +18,7 @@
       <option value="mass">Mass</option>
       <option value="velocity">Velocity</option>
     </select>
-
+    <label id="answer" class="px-4"></label>
     <br><br>
 
     <label id="a"> What do we have? </label><br><br>
@@ -52,6 +52,7 @@
     const givenKETb = document.getElementById("givenKE");
     const givenMassTb = document.getElementById("givenMass");
     const givenVelocityTb = document.getElementById("givenVelocity");
+    let answer = document.getElementById("answer");
 
     function disableBox(){
       if(dropdown.value === "KE"){
@@ -87,19 +88,22 @@
 
       if(missingValue === 'KE'){
         if(givenMass && givenVelocity){
-          alert("The Kinetic Energy is "+solution(givenMass, givenVelocity, missingValue)+" J");
+          answer.innerHTML = solution(givenMass, givenVelocity, missingValue)+" J";
+          answer.style.backgroundColor = 'rgb(195, 151, 231)';
         } else {
           alert("Enter given values");
         }
       } else if(missingValue === 'mass'){
         if(givenKE && givenVelocity){
-          alert("The mass is "+solution(givenKE, givenVelocity, missingValue)+" kg");
+          answer.innerHTML = solution(givenKE, givenVelocity, missingValue)+" kg";
+          answer.style.backgroundColor = 'rgb(195, 151, 231)';
         } else {
           alert("Enter given values");
         }
       } else if(missingValue === 'velocity'){
         if(givenMass && givenKE){
-          alert("The velocity is "+solution(givenKE, givenMass, missingValue)+" m");
+          answer.innerHTML = solution(givenKE, givenMass, missingValue)+" m";
+          answer.style.backgroundColor = 'rgb(195, 151, 231)';
         } else {
           alert("Enter given values");
         }
@@ -110,6 +114,9 @@
       givenKETb.value = null;
       givenMassTb.value = null;
       givenVelocityTb.value = null;
+      
+      answer.style.backgroundColor = 'transparent';
+      answer.innerHTML = '';
     }
 
     function solution(given1, given2, missing){

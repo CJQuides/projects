@@ -7,17 +7,17 @@
 </head>
 <body>
   <div class="container mb-sm-4 mb-lg-4 mt-3 mt-md-5">
-    <h1> You chose Work! </h1>
+    <h1> You clicked Work! </h1>
   </div>
 
   <center>
     <label id="a"> What are we looking for? </label> <br>
-    <select name="missing" id="missing">
+    <select name="missing" id="missing" class="py-2">
       <option value="work">Work</option>
       <option value="force">Force</option>
       <option value="distance">Distance</option>
     </select>
-
+    <label id="answer" class="px-4"></label>
     <br><br>
 
     <label id="a"> What do we have? </label><br>
@@ -55,6 +55,7 @@
     const givenForceTb = document.getElementById("givenForce");
     const givenDistanceTb = document.getElementById("givenDistance");
     const givenAngleTb = document.getElementById("givenAngle");
+    let answer = document.getElementById("answer");
 
     function disableBox(){
       if(dropdown.value === "work"){
@@ -92,19 +93,22 @@
 
       if(missingValue === 'work'){
         if(givenForce && givenDistance){
-          alert("The work done is "+solution(givenForce, givenDistance, givenAngle, missingValue)+" J");
+          answer.innerHTML = solution(givenForce, givenDistance, givenAngle, missingValue)+" J";
+          answer.style.backgroundColor = 'rgb(195, 151, 231)';
         } else {
           alert("Enter given values");
         }
       } else if(missingValue === 'force'){
         if(givenWork && givenDistance){
-          alert("The force applied is "+solution(givenWork, givenDistance, givenAngle, missingValue)+" N");
+          answer.innerHTML = solution(givenWork, givenDistance, givenAngle, missingValue)+" N";
+          answer.style.backgroundColor = 'rgb(195, 151, 231)';
         } else {
           alert("Enter given values");
         }
       } else if(missingValue === 'distance'){
         if(givenForce && givenWork){
-          alert("The distance travelled is "+solution(givenWork, givenForce, givenAngle, missingValue)+" m");
+          answer.innerHTML = solution(givenWork, givenForce, givenAngle, missingValue)+" m";
+          answer.style.backgroundColor = 'rgb(195, 151, 231)';
         } else {
           alert("Enter given values");
         }
@@ -116,6 +120,9 @@
       givenForceTb.value = null;
       givenDistanceTb.value = null;
       givenAngleTb.value = null;
+      
+      answer.style.backgroundColor = 'transparent';
+      answer.innerHTML = '';
     }
 
     function solution(given1, given2, givenAngle, missing){
