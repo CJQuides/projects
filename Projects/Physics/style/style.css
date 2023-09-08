@@ -18,9 +18,11 @@ h1 {
 }
 
 #missing {
-  font-size: 20px;
+  font-size: 25px;
   text-align: center;
   font-family: serif;
+  border: black solid 2px;
+  padding: 3px;
 }
 
 #a {
