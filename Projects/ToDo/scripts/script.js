@@ -1,7 +1,6 @@
 console.log('09.02.23')/* 
 localStorage.removeItem("myArray"); */
 let todoArray = JSON.parse(localStorage.getItem('myArray')) || [];
-
 const table = document.getElementById('myTable2');
 
 let x = 0;
@@ -54,7 +53,6 @@ todoArray.forEach((item, index) => {
 
   x++;
   console.log(x);
-  console.log(typeof item)
   
 });
 
@@ -62,10 +60,19 @@ function saveToDo(){
   const inputValue = document.querySelector(".input").value;
   console.log("new item:" ,inputValue);
 
-  todoArray.push({ toDo: inputValue, done: false });
-  console.log("array",todoArray);
+  if(inputValue){
+    todoArray.push({ toDo: inputValue, done: false });
+    console.log("array",todoArray);
 
-  localStorage.setItem("myArray", JSON.stringify(todoArray));
+    localStorage.setItem("myArray", JSON.stringify(todoArray));
 
-  location.reload(); // or icall yung pang display
+    location.reload(); // or icall yung pang display
+  }
 }
+
+document.getElementById('inputToDo').addEventListener("keydown", function(event) {
+  // Define the key you want to validate (e.g., "Enter")
+  if(event.key === "Enter"){
+    saveToDo();
+  }
+});
