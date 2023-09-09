@@ -1,4 +1,4 @@
-.js-delete{
+.js-delete, .js-done{
   background-image: url('media/del-btn.png');
   background-size: cover;
   height: 30px;
