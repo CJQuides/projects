@@ -11,6 +11,7 @@ todoArray.forEach((item, index) => {
   cell1.textContent = item.toDo;
   cell1.classList.add('center-cell');
   cell1.classList.add('item-cell');
+  //cell1.setAttribute('id', 'item-cell');
 
   const cell2 = newRow.insertCell(1);
   var box2 = document.createElement("input");
@@ -19,6 +20,7 @@ todoArray.forEach((item, index) => {
   box2.textContent = '';
   box2.classList.add('js-done');
   cell2.classList.add('center-cell');
+  box2.id
 
   if(item.done){
     box2.checked = true;

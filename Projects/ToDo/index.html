@@ -3,21 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>To Do List</title>
+  <title>To Do List</title><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
   <link rel="stylesheet" href="style/style.css">
 </head>
 <body>
-  <h1 class="header">TO DO LIST</h1>
+  <div id="body-2" class="container d-flex flex-column justify-content-center align-items-center vh-100">    
+    <h1>TO DO LIST</h1>
 
-  <div class="body-1">
-    <label for="input1">Enter To Do</label><br>
-    <input type="text" name="input1" class="input" id="inputToDo"><br><br>
-
-    <button class="js-save" onclick="saveToDo()">Save</button><br><br>
-
-    <table id="myTable2" cellspacing="0">
+    <div>
+      <table id="table-title" style="width: 93%;">
       <thead>
         <tr>
+          <th style="width: 230px;">To Do</th>
+          <th>Done </th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+    </table>
+    </div>
+
+    <div id="tbl">
+      <table id="myTable2" cellspacing="0">
+      <thead>
+        <tr style="display: none;">
           <th>To Do</th>
           <th>Done</th>
           <th>Delete</th>
@@ -26,11 +34,25 @@
       <tbody>
       </tbody>
     </table>
+    </div><br>
+    <button class="homeBtn" onclick="document.querySelector('#addTodo').style.display='block';">Add</button>
+
+    <br>
+    <a href="../../" class="homeBtn">Home</a><br>
+  </div>
+  <div class="container" id="addTodo" style="display: none;">
+    <center>
+      <label for="input1" id="enterSign">Enter To Do</label><br>
+      <input type="text" name="input1" class="input" id="inputToDo"><br><br>
+
+      <button class="js-save btn btn-light" onclick="saveToDo()">Save</button><br><br>
+    </center>
   </div>
 
-  <br><br>
-  <a href="../../" class="homeBtn">Home</a>
 
   <script src="scripts/script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 </body>
 </html>
+
+<!-- user add column -->

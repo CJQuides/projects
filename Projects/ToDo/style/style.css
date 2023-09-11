@@ -1,4 +1,10 @@
-.js-delete, .js-done{
+body {
+  background-image: url('https://wallpapers.com/images/hd/anime-girl-on-desk-study-aesthetic-lskhrxrhvdngtulp.jpg');
+  background-size: cover;
+  color: white;  
+}
+
+.js-delete, .js-done {
   background-image: url('media/del-btn.png');
   background-size: cover;
   height: 30px;
@@ -7,20 +13,26 @@
   background-color: transparent;
   cursor: pointer;
   align-items: center;
+  margin-inline: 10px;
 }
 
 .center-cell {
   text-align: center;
-  border-bottom: black solid 2px;
+  border-bottom: white solid 2px;
   padding-top: 30px;
 }
 
-.item-cell{
-  width: 200px;
-  border-bottom: black solid 2px;
+tr {
+  text-align: center;
 }
 
-.homeBtn{  
+.item-cell {
+  width: 200px;
+  border-bottom: white solid 2px;
+  padding-inline: 20px;
+}
+
+.homeBtn {  
   background-color: #FE7F9C;
   border-radius: 30px;
   border: #FE7F9C 5px solid;
@@ -28,5 +40,33 @@
   padding-inline: 10px;
   font-size: clamp(20px, 4vw, 50px);
   text-decoration:none;
+  color: black;
+}
+
+#tbl {
+  height: 400px;
+  overflow-y: auto;
+  background-color: rgba(0, 0, 0, 0.384); 
+}
+
+#enterSign {
+  color: rgb(0, 0, 0);  /* 
+  background-color: rgba(255, 255, 255, 0.541); */
+  font-weight: bold;
+  font-size: 20px;
+  text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+  
+}
+
+.centered-div {
+  text-align: center;
+  margin-top: 10%;
+}
+
+#table-title th {
+  margin-inline: 20px;
+}
+
+#inputToDo {
   color: black;
 }
