@@ -1,6 +1,10 @@
 body {
   background-image: url('https://wallpapers.com/images/hd/anime-girl-on-desk-study-aesthetic-lskhrxrhvdngtulp.jpg');
+  height: 100%;
+  background-position-x: 65%;
+  background-position-y: 50%;
   background-size: cover;
+  background-repeat: no-repeat;
   color: white;  
 }
 
@@ -54,8 +58,7 @@ tr {
   background-color: rgba(255, 255, 255, 0.541); */
   font-weight: bold;
   font-size: 20px;
-  text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
-  
+  text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #FFF, 0 0 40px #FFF, 0 0 50px #fff, 0 0 60px #fff, 0 0 70px #fff;
 }
 
 .centered-div {

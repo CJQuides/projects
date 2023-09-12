@@ -1,6 +1,8 @@
 body {
   background-image: url("https://wallpaperaccess.com/full/1320758.jpg");
-  background-repeat: no-repeat;
+  height: 100vh;
+  background-position-x: 50%;
+  background-position-y: 50%;
   background-size: cover;
 }
 
@@ -9,12 +11,12 @@ body {
 }
 
 .btn {
-  text-decoration: none;
-  color: black;
   background-color: pink;
   border-radius: 50px;
   font-size: 30px;
   padding: 10px;
+  border: none;
+  margin: 0 0 20px 10px;
 }
 
 .btn:hover {
