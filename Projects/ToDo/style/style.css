@@ -42,9 +42,7 @@ tr {
   border: #FE7F9C 5px solid;
   font-family: 'Times New Roman', Times, serif;
   padding-inline: 10px;
-  font-size: clamp(20px, 4vw, 50px);
-  text-decoration:none;
-  color: black;
+  font-size: clamp(20px, 3vw, 50px);
 }
 
 #tbl {

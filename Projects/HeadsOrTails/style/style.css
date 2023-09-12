@@ -6,7 +6,7 @@
     background-color: red;
 }
 
-.headBtn, .tailBtn, .resetBtn, .nextBtn {
+.headBtn, .tailBtn, .resetBtn, .homeBtn {
     background-color: #FE7F9C;
     border-radius: 30px;
     border: #FE7F9C 5px solid;
@@ -15,15 +15,10 @@
     font-size: clamp(20px, 4vw, 50px);
 }
 
-.headBtn:hover, .tailBtn:hover, .resetBtn:hover, .nextBtn:hover {
+.headBtn:hover, .tailBtn:hover, .resetBtn:hover, .homeBtn:hover {
     background-color: #73C2FB;
     border: #73C2FB 5px solid;
     transition-duration: .7s;
-}
-
-.nextBtn {
-    text-decoration:none;
-    color: black;
 }
 
 body {

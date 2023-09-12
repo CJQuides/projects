@@ -87,3 +87,12 @@ table {
     width: 25%;
     font-weight: 900;
 }
+
+.homeBtn {  
+    background-color: #73C2FB;
+    border-radius: 30px;
+    border: #73C2FB 5px solid;
+    font-family: 'Times New Roman', Times, serif;
+    padding-inline: 10px;
+    font-size: clamp(20px, 3vw, 50px);
+  }
