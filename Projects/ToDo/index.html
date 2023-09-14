@@ -11,15 +11,25 @@
     <h1>TO DO LIST</h1>
 
     <div>
-      <table id="table-title" style="width: 93%;">
+      <table id="table-title">
       <thead>
         <tr>
-          <th style="width: 250px; padding-left: 17px;">To Do</th>
-          <th style="margin-left: 47px;">Done  </th>
-          <th>Delete </th>
+          <th >To Do</th> <!--  style="width: 250px; padding-left: 37px;" -->
+          <th>Done</th> <!--  style="padding-left: 20px;" -->
+          <th>Delete</th>
           <th>Update</th>
+          <th>Move</th>
         </tr>
       </thead>
+      <tbody>
+        <tr style="visibility: hidden;">
+          <td class="title-item">9</td>
+          <td id="title-done"></td>
+          <td id="title-delete"></td>
+          <td class="title-update"></td>
+          <td id="title-move"></td>
+        </tr>
+      </tbody>
     </table>
     </div>
 
