@@ -40,6 +40,7 @@ for (i = 0; i < todoArray.length; i++) {
       todoArray.splice(index, 1, { toDo: itemNow, done: true });
     }
     localStorage.setItem('myArray', JSON.stringify(todoArray));
+    location.reload();
   });
   cell2.appendChild(box2);
 
