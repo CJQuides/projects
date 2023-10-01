@@ -1,11 +1,10 @@
 body {
   background: linear-gradient(to top, pink, lightblue, pink, lightblue);
-  /* background-image: url("media/brain2.jpg");
-  height: 130vh;
+  background-image: url("media/brain2.jpg");
   background-position: 50%;
   background-size: cover;
-  background-repeat: no-repeat; */
-    background: url('media/brain2.jpg') center center/cover no-repeat;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 h1 {
