@@ -42,7 +42,7 @@ div h1 {
   text-shadow: 3px 3px #000000;
 }
 
-#given {
+.given {
   font-size: 20px;
   border: black 3px solid;
   padding: 5px;
@@ -51,19 +51,20 @@ div h1 {
   font-weight: 400;
   max-width: 500px;
   font-weight: bold;
+  margin: auto;
 }
 
-#given ul {
+.given ul {
   list-style: none;
   display: flex;
   flex-wrap:wrap;
 }
 
-#given li:first-child{
+.given li:first-child{
   text-align: center;
 }
 
-#given li {
+.given li {
   flex-grow: 1;
   flex-basis: 300;
 }
@@ -160,11 +161,41 @@ button:hover {
 @media (max-width: 800px) {
 }
 
-@media (max-width: 415px) {
-  #given li:first-child{
+@media (max-width: 495px) {
+  .given-EPE li:first-child{
+    padding-inline: 46px;
+  }
+  .given-EPE li:nth-child(2){
+    text-align: center;
+  }
+  #givenAOC {
+    width: auto;
+  }
+}
+
+@media (max-width: 483px) {
+  .given-PE li:first-child{
+    padding-inline: 46px;
+  }
+  .given-PE li:nth-child(2){
+    text-align: center;
+  }
+}
+
+@media (max-width: 464px) {
+  .given-KE li:first-child{
+    padding-inline: 37px;
+  }
+  .given-KE li:nth-child(2){
+    text-align: center;
+  }
+}
+
+@media (max-width: 419px) {
+  .given-work-power li:first-child{
     padding-inline: 30px;
   }
-  #given li:nth-child(2){
+  .given-work-power li:nth-child(2){
     text-align: center;
   }
   
