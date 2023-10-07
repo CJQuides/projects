@@ -151,7 +151,7 @@ for (i = 0; i < todoArray.length; i++) {
 }
 
 function saveToDo(){
-  const inputValue = document.querySelector(".input").value;
+  const inputValue = document.querySelector(".input-box").value;
   console.log("new item:" ,inputValue);
 
   if(inputValue){
@@ -164,7 +164,7 @@ function saveToDo(){
   }
 }
 
-document.getElementById('inputToDo').addEventListener("keydown", function(event) {
+document.querySelector(".input-box").addEventListener("keydown", function(event) {
   if(event.key === "Enter"){
     saveToDo();
   }

@@ -34,6 +34,10 @@
     </div>
 
     <div id="tbl">
+      <div class="input-container addTodo" style="display: none;">
+        <input type="text" class="input-box" placeholder=""/>
+        <label for="input-box">Enter new item</label>
+      </div>
       <table id="myTable2" cellspacing="0">
       <thead>
         <tr style="display: none;">
@@ -46,18 +50,10 @@
       </tbody>
     </table>
     </div><br>
-    <button class="homeBtn" onclick="document.querySelector('#addTodo').style.display='block';">Add</button>
+    <button class="homeBtn" onclick="document.querySelector('.addTodo').style.display='block';">Add</button>
 
     <br>
     <button onclick="location.href='../../'" class="homeBtn" class="btn">Home</button>
-  </div>
-  <div class="container" id="addTodo" style="display: none;">
-    <center>
-      <label for="input1" id="enterSign">Enter To Do</label><br>
-      <input type="text" name="input1" class="input" id="inputToDo"><br><br>
-
-      <button class="js-save btn btn-light" onclick="saveToDo()">Save</button><br><br>
-    </center>
   </div>
 
 
@@ -67,5 +63,3 @@
 </html>
 
 <!-- user add column -->
-
-<!-- move up -->
